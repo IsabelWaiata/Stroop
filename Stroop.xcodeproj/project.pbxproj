@@ -7,14 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08005F992976C28900578524 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005F982976C28900578524 /* PageView.swift */; };
+		08005F9B2976E10B00578524 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005F9A2976E10B00578524 /* ControlView.swift */; };
+		08005F9D2976E6D400578524 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005F9C2976E6D400578524 /* ButtonsView.swift */; };
+		08005F9F2976EBE500578524 /* ChineseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005F9E2976EBE500578524 /* ChineseView.swift */; };
+		08005FA12976EC6F00578524 /* EnglishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005FA02976EC6F00578524 /* EnglishView.swift */; };
+		08005FA32976ED0700578524 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005FA22976ED0700578524 /* ScoreView.swift */; };
 		0892D6D329766998009E0DBF /* StroopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D229766998009E0DBF /* StroopApp.swift */; };
 		0892D6D529766998009E0DBF /* StroopDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D429766998009E0DBF /* StroopDocument.swift */; };
 		0892D6D729766998009E0DBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D629766998009E0DBF /* ContentView.swift */; };
 		0892D6D929766999009E0DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0892D6D829766999009E0DBF /* Assets.xcassets */; };
 		0892D6DE29766999009E0DBF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0892D6DD29766999009E0DBF /* Preview Assets.xcassets */; };
+		0892D6E52976721D009E0DBF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6E42976721D009E0DBF /* TestView.swift */; };
+		0892D6E7297672EA009E0DBF /* Stroop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6E6297672EA009E0DBF /* Stroop.swift */; };
+		0892D6E929767818009E0DBF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6E829767818009E0DBF /* Test.swift */; };
+		0892D6EB2976789A009E0DBF /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6EA2976789A009E0DBF /* Subject.swift */; };
+		0892D6ED29767ABA009E0DBF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6EC29767ABA009E0DBF /* InfoView.swift */; };
+		0892D6EF29767ACF009E0DBF /* MarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6EE29767ACF009E0DBF /* MarkView.swift */; };
+		0892D6F129767EF0009E0DBF /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6F029767EF0009E0DBF /* Colour.swift */; };
+		0892D6F329768441009E0DBF /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6F229768441009E0DBF /* Stopwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08005F982976C28900578524 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		08005F9A2976E10B00578524 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		08005F9C2976E6D400578524 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		08005F9E2976EBE500578524 /* ChineseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseView.swift; sourceTree = "<group>"; };
+		08005FA02976EC6F00578524 /* EnglishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishView.swift; sourceTree = "<group>"; };
+		08005FA22976ED0700578524 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		0892D6CF29766998009E0DBF /* Stroop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stroop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0892D6D229766998009E0DBF /* StroopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroopApp.swift; sourceTree = "<group>"; };
 		0892D6D429766998009E0DBF /* StroopDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroopDocument.swift; sourceTree = "<group>"; };
@@ -23,6 +43,14 @@
 		0892D6DA29766999009E0DBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0892D6DB29766999009E0DBF /* Stroop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stroop.entitlements; sourceTree = "<group>"; };
 		0892D6DD29766999009E0DBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0892D6E42976721D009E0DBF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		0892D6E6297672EA009E0DBF /* Stroop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroop.swift; sourceTree = "<group>"; };
+		0892D6E829767818009E0DBF /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		0892D6EA2976789A009E0DBF /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		0892D6EC29767ABA009E0DBF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		0892D6EE29767ACF009E0DBF /* MarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkView.swift; sourceTree = "<group>"; };
+		0892D6F029767EF0009E0DBF /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
+		0892D6F229768441009E0DBF /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +83,9 @@
 		0892D6D129766998009E0DBF /* Stroop */ = {
 			isa = PBXGroup;
 			children = (
-				0892D6D229766998009E0DBF /* StroopApp.swift */,
-				0892D6D429766998009E0DBF /* StroopDocument.swift */,
-				0892D6D629766998009E0DBF /* ContentView.swift */,
+				08AA1C2D2976948900036B9B /* Main */,
+				08AA1C2C2976947300036B9B /* Model */,
+				08AA1C2B2976946300036B9B /* Views */,
 				0892D6D829766999009E0DBF /* Assets.xcassets */,
 				0892D6DA29766999009E0DBF /* Info.plist */,
 				0892D6DB29766999009E0DBF /* Stroop.entitlements */,
@@ -72,6 +100,44 @@
 				0892D6DD29766999009E0DBF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		08AA1C2B2976946300036B9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0892D6D629766998009E0DBF /* ContentView.swift */,
+				08005F982976C28900578524 /* PageView.swift */,
+				0892D6EC29767ABA009E0DBF /* InfoView.swift */,
+				0892D6E42976721D009E0DBF /* TestView.swift */,
+				08005FA22976ED0700578524 /* ScoreView.swift */,
+				08005F9A2976E10B00578524 /* ControlView.swift */,
+				08005F9E2976EBE500578524 /* ChineseView.swift */,
+				08005FA02976EC6F00578524 /* EnglishView.swift */,
+				08005F9C2976E6D400578524 /* ButtonsView.swift */,
+				0892D6EE29767ACF009E0DBF /* MarkView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		08AA1C2C2976947300036B9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0892D6E6297672EA009E0DBF /* Stroop.swift */,
+				0892D6EA2976789A009E0DBF /* Subject.swift */,
+				0892D6E829767818009E0DBF /* Test.swift */,
+				0892D6F229768441009E0DBF /* Stopwatch.swift */,
+				0892D6F029767EF0009E0DBF /* Colour.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08AA1C2D2976948900036B9B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0892D6D229766998009E0DBF /* StroopApp.swift */,
+				0892D6D429766998009E0DBF /* StroopDocument.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +210,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0892D6ED29767ABA009E0DBF /* InfoView.swift in Sources */,
+				08005FA12976EC6F00578524 /* EnglishView.swift in Sources */,
+				08005F992976C28900578524 /* PageView.swift in Sources */,
+				08005FA32976ED0700578524 /* ScoreView.swift in Sources */,
+				0892D6E929767818009E0DBF /* Test.swift in Sources */,
+				0892D6EF29767ACF009E0DBF /* MarkView.swift in Sources */,
+				08005F9D2976E6D400578524 /* ButtonsView.swift in Sources */,
+				0892D6E52976721D009E0DBF /* TestView.swift in Sources */,
+				0892D6F329768441009E0DBF /* Stopwatch.swift in Sources */,
+				0892D6EB2976789A009E0DBF /* Subject.swift in Sources */,
+				08005F9F2976EBE500578524 /* ChineseView.swift in Sources */,
+				0892D6F129767EF0009E0DBF /* Colour.swift in Sources */,
+				0892D6E7297672EA009E0DBF /* Stroop.swift in Sources */,
+				08005F9B2976E10B00578524 /* ControlView.swift in Sources */,
 				0892D6D329766998009E0DBF /* StroopApp.swift in Sources */,
 				0892D6D529766998009E0DBF /* StroopDocument.swift in Sources */,
 				0892D6D729766998009E0DBF /* ContentView.swift in Sources */,
@@ -265,7 +345,7 @@
 		0892D6E229766999009E0DBF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Stroop/Stroop.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -276,6 +356,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Stroop/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -306,7 +387,7 @@
 		0892D6E329766999009E0DBF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Stroop/Stroop.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -317,6 +398,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Stroop/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

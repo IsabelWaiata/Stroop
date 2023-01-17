@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct StroopApp: App {
+    
     var body: some Scene {
         DocumentGroup(newDocument: StroopDocument()) { file in
-            ContentView(document: file.$document)
+            ContentView()
+                .environmentObject(file.document.stroop)
                 .frame(minWidth: 120, maxWidth: .infinity, minHeight: 80, maxHeight: .infinity)
         }
     }
