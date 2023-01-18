@@ -11,12 +11,15 @@ struct InfoView: View {
     
     @EnvironmentObject var stroop: Stroop
     
+    @AppStorage("Gender") var gender: Subject.Gender?
+    
     var body: some View {
         VStack {
             Form {
-                Picker(selection: $stroop.subject.gender, label: Text("Gender:")) {
+                Picker(selection: $gender, label: Text("Gender:")) {
+                    Text("Unspecified").tag(nil as Subject.Gender?)
                     ForEach(Subject.Gender.allCases, id: \.self) { gender in
-                        Text(gender.rawValue.localizedCapitalized).tag(gender)
+                        Text(gender.rawValue.localizedCapitalized).tag(gender as Subject.Gender?)
                     }
                 }
                 HStack {

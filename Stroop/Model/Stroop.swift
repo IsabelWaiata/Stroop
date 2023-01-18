@@ -10,14 +10,14 @@ import Foundation
 class Stroop: Codable, ObservableObject {
     
     enum CodingKeys: String, CodingKey {
-        case subject
+//        case subject
         case tests
     }
     
-    var subject = Subject()
     
     var tests = [Test]()
     
+    @Published var subject = Subject()
     @Published var test = Test()
     @Published var phase = Phase.info
     

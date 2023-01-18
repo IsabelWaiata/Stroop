@@ -19,6 +19,6 @@ struct ScoreView: View {
 struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         ScoreView()
-            .environmentObject(Stroop())
+            .environmentObject(Sample.stroop)
     }
 }

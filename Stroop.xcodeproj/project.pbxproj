@@ -13,6 +13,9 @@
 		08005F9F2976EBE500578524 /* ChineseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005F9E2976EBE500578524 /* ChineseView.swift */; };
 		08005FA12976EC6F00578524 /* EnglishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005FA02976EC6F00578524 /* EnglishView.swift */; };
 		08005FA32976ED0700578524 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08005FA22976ED0700578524 /* ScoreView.swift */; };
+		0833C34B2977DBD800132DD7 /* AccuracyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833C34A2977DBD800132DD7 /* AccuracyView.swift */; };
+		0833C34D2977DC4200132DD7 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833C34C2977DC4200132DD7 /* Sample.swift */; };
+		0833C34F2977E23600132DD7 /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833C34E2977E23600132DD7 /* SpeedView.swift */; };
 		0892D6D329766998009E0DBF /* StroopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D229766998009E0DBF /* StroopApp.swift */; };
 		0892D6D529766998009E0DBF /* StroopDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D429766998009E0DBF /* StroopDocument.swift */; };
 		0892D6D729766998009E0DBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D629766998009E0DBF /* ContentView.swift */; };
@@ -35,6 +38,9 @@
 		08005F9E2976EBE500578524 /* ChineseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseView.swift; sourceTree = "<group>"; };
 		08005FA02976EC6F00578524 /* EnglishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishView.swift; sourceTree = "<group>"; };
 		08005FA22976ED0700578524 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		0833C34A2977DBD800132DD7 /* AccuracyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuracyView.swift; sourceTree = "<group>"; };
+		0833C34C2977DC4200132DD7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		0833C34E2977E23600132DD7 /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
 		0892D6CF29766998009E0DBF /* Stroop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stroop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0892D6D229766998009E0DBF /* StroopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroopApp.swift; sourceTree = "<group>"; };
 		0892D6D429766998009E0DBF /* StroopDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroopDocument.swift; sourceTree = "<group>"; };
@@ -109,12 +115,14 @@
 				08005F982976C28900578524 /* PageView.swift */,
 				0892D6EC29767ABA009E0DBF /* InfoView.swift */,
 				0892D6E42976721D009E0DBF /* TestView.swift */,
-				08005FA22976ED0700578524 /* ScoreView.swift */,
 				08005F9A2976E10B00578524 /* ControlView.swift */,
+				08005FA22976ED0700578524 /* ScoreView.swift */,
 				08005F9E2976EBE500578524 /* ChineseView.swift */,
 				08005FA02976EC6F00578524 /* EnglishView.swift */,
 				08005F9C2976E6D400578524 /* ButtonsView.swift */,
 				0892D6EE29767ACF009E0DBF /* MarkView.swift */,
+				0833C34A2977DBD800132DD7 /* AccuracyView.swift */,
+				0833C34E2977E23600132DD7 /* SpeedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 				0892D6E829767818009E0DBF /* Test.swift */,
 				0892D6F229768441009E0DBF /* Stopwatch.swift */,
 				0892D6F029767EF0009E0DBF /* Colour.swift */,
+				0833C34C2977DC4200132DD7 /* Sample.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,15 +222,18 @@
 				0892D6ED29767ABA009E0DBF /* InfoView.swift in Sources */,
 				08005FA12976EC6F00578524 /* EnglishView.swift in Sources */,
 				08005F992976C28900578524 /* PageView.swift in Sources */,
+				0833C34B2977DBD800132DD7 /* AccuracyView.swift in Sources */,
 				08005FA32976ED0700578524 /* ScoreView.swift in Sources */,
 				0892D6E929767818009E0DBF /* Test.swift in Sources */,
 				0892D6EF29767ACF009E0DBF /* MarkView.swift in Sources */,
 				08005F9D2976E6D400578524 /* ButtonsView.swift in Sources */,
 				0892D6E52976721D009E0DBF /* TestView.swift in Sources */,
 				0892D6F329768441009E0DBF /* Stopwatch.swift in Sources */,
+				0833C34D2977DC4200132DD7 /* Sample.swift in Sources */,
 				0892D6EB2976789A009E0DBF /* Subject.swift in Sources */,
 				08005F9F2976EBE500578524 /* ChineseView.swift in Sources */,
 				0892D6F129767EF0009E0DBF /* Colour.swift in Sources */,
+				0833C34F2977E23600132DD7 /* SpeedView.swift in Sources */,
 				0892D6E7297672EA009E0DBF /* Stroop.swift in Sources */,
 				08005F9B2976E10B00578524 /* ControlView.swift in Sources */,
 				0892D6D329766998009E0DBF /* StroopApp.swift in Sources */,
@@ -348,6 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Stroop/Stroop.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stroop/Preview Content\"";
@@ -390,6 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Stroop/Stroop.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stroop/Preview Content\"";

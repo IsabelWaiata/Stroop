@@ -11,12 +11,15 @@ class Test: Codable {
     
     var subject = Subject()
 
-
     var trys = [Try]()
 
     var current = Try()
     
     var score = Score()
+    
+    func recalculateScore() {
+        score = Score(trys)
+    }
     
     func score(for mode: Mode) -> Score {
         let trys = self.trys.filter { $0.mode == mode }
@@ -72,9 +75,15 @@ class Test: Codable {
         }
         
         /// proportion of correct answers
-        var fraction: Double {
+        var accuracy: Double {
             guard trys != 0 else { return 0 }
             return Double(good) / Double(trys)
+        }
+        
+        /// number of good guesses per minute
+        var gpm: Double {
+            guard time != 0 else { return 0 }
+            return Double(good) * 60 / time
         }
         
         /// average time per correct answer
@@ -86,11 +95,19 @@ class Test: Codable {
         
         var meanText: String {
             guard let mean else { return "" }
-            return "Mean Time = \(mean)"
+            return "Average: " + String(format: "%0.2f", mean)
+        }
+        
+        var timeText: String {
+            String(format: "%0.2f", time) + " seconds"
+        }
+        
+        var trysText: String {
+            "\(good) / \(trys)"
         }
         
         var summary: String {
-            "\(good) / \(trys) (\(fraction)) in \(time) seconds." + meanText
+        trysText + " in " + timeText + ". " + meanText
         }
     }
     

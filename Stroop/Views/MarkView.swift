@@ -10,76 +10,42 @@ import SwiftUI
 struct MarkView: View {
     
     @EnvironmentObject var stroop: Stroop
-    @State var test = Test()
     
     var body: some View {
         VStack {
-            Text("Results").font(.title)
             Divider()
-            HStack {
-                ForEach(Test.Mode.allCases, id: \.self) { mode in
-                    let score = stroop.test.score(for: mode)
-                    ScoreLoop(score: score, mode: mode)
-                }
-                
-                ScoreLoop(score: test.score, mode: nil)
-            }
+            Text("Accuracy").font(.title)
+                .padding()
+            AccuracyViews()
+            Divider()
+            Text("Speed").font(.title).padding()
+            SpeedViews()
         }
         
-        Button(action: {
-            stroop.saveTest()
-            stroop.nextTest()
-            stroop.phase = .info
-        }) {
-            Label("Start Over", systemImage: "restart")
-        }
-        .buttonStyle(.borderedProminent)
-    }
-}
-
-
-struct ScoreLoop: View {
-    
-    let score: Test.Score
-    let mode: Test.Mode?
-    
-    
-    func color(for mode: Test.Mode?) -> Color {
-        switch mode {
-        case .control: return .gray
-        case .chinese: return .red
-        case .english: return .blue
-        default: return .primary
-        }
-    }
-    
-    var body: some View {
-        
-        let fraction = CGFloat(score.fraction)
-        let color = color(for: mode)
-        let title = mode?.rawValue ?? "Total"
-        VStack {
-            Text( title.localizedCapitalized).font(.headline)
-            ZStack {
-                Circle()
-                    .trim(from: 0, to: fraction)
-                    .stroke(lineWidth: 24)
-                    .rotationEffect(.degrees(-90))
-                    .frame(width: 120)
-                VStack {
-                    Text("\(Int(fraction * 100))%")
-                        .font(.title2)
-                    Text("\(score.good) / \(score.trys)")
-                }
+        HStack {
+            Button(action: {
+                stroop.saveTest()
+                stroop.nextTest()
+                stroop.phase = .info
+            }) {
+                Label("Save", systemImage: "internaldrive")
             }
+            .buttonStyle(.borderedProminent)
+            
+            Button(action: {
+                stroop.nextTest()
+                stroop.phase = .info
+            }) {
+                Label("Discard", systemImage: "xmark.bin")
+            }
+            .buttonStyle(.plain)
         }
-        .foregroundColor(color)
     }
 }
 
 struct MarkView_Previews: PreviewProvider {
     static var previews: some View {
         MarkView()
-            .environmentObject(Stroop())
+            .environmentObject(Sample.stroop)
     }
 }

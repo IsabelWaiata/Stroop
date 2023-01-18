@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Subject: Codable {
+struct Subject: Codable {
     
-    var gender: Gender = .other
+    var gender: Gender?
     var age: Int = 11
     
     enum Gender: String, Codable, CaseIterable {

@@ -9,9 +9,21 @@ import Foundation
 @propertyWrapper
 struct Stopwatch: Codable {
     
+    init() { }
+    
+    init(_ time: TimeInterval) {
+        wrappedValue = time
+    }
+    
     var wrappedValue: TimeInterval {
-        let end = finished ?? Date()
-        return end.timeIntervalSince(started)
+        get {
+            let end = finished ?? Date()
+            return end.timeIntervalSince(started)
+        }
+        set {
+            finished = Date()
+            started = finished!.addingTimeInterval(0 - newValue)
+        }
     }
     
     var started = Date()
