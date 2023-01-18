@@ -12,6 +12,7 @@ struct InfoView: View {
     @EnvironmentObject var stroop: Stroop
     
     @AppStorage("Gender") var gender: Subject.Gender?
+    @AppStorage("Age") var age: Int = 1
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct InfoView: View {
                 HStack {
                     Text("Age:")
                     
-                    TextField("", value: $stroop.subject.age, formatter: NumberFormatter())
+                    TextField("", value: $age, formatter: NumberFormatter())
                         .multilineTextAlignment(.trailing)
 #if os(iOS)
                         .keyboardType(.decimalPad)

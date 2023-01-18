@@ -10,14 +10,12 @@ import Foundation
 class Stroop: Codable, ObservableObject {
     
     enum CodingKeys: String, CodingKey {
-//        case subject
         case tests
     }
     
     
     var tests = [Test]()
     
-    @Published var subject = Subject()
     @Published var test = Test()
     @Published var phase = Phase.info
     
@@ -27,7 +25,6 @@ class Stroop: Codable, ObservableObject {
         
     func nextTest() {
         test = Test()
-        test.subject = subject
     }
     
     func guess(_ colour: Colour) {
