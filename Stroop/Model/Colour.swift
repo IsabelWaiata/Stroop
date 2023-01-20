@@ -57,7 +57,7 @@ enum Colour: Codable, CaseIterable {
         case .green:    return .green
         case .blue:     return .blue
         case .purple:   return .purple
-        case .pink:     return .pink
+        case .pink:     return Color("Pink")
         case .brown:    return .brown
         }
     }
