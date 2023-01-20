@@ -16,23 +16,16 @@ struct PageView: View {
             
             Label("Info", systemImage: "info.circle")
                 .tag(Stroop.Phase.info)
-            Label("Control", systemImage: "squares.below.rectangle")
-                .tag(Stroop.Phase.test(.control))
-            Label("中文", systemImage: "squares.below.rectangle")
-                .tag(Stroop.Phase.test(.chinese))
-            Label("English", systemImage: "squares.below.rectangle")
-                .tag(Stroop.Phase.test(.english))
+            ForEach(Test.Mode.list, id: \.self) { mode in
+                Label(mode.label, systemImage: "squares.below.rectangle")
+                    .tag(mode)
+            }
             Label("Results", systemImage: "chart.xyaxis.line")
                 .tag(Stroop.Phase.mark)
         }
         .pickerStyle(.segmented)
         .padding()
     }
-    
-    func go(_ phase: Stroop.Phase) {
-        stroop.phase = .test(.control)
-    }
-    
 
 }
 

@@ -10,7 +10,7 @@ import Foundation
 extension Test {
     
     struct Try: Codable {
-        var mode: Mode = .control
+        var mode: Mode = Mode()
         var word: Colour = Colour.random   // written text of colour
         var tint: Colour = Colour.random   // random colour of text
         var pick: Colour?  {               // colour guessed by subject

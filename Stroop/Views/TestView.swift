@@ -14,26 +14,36 @@ struct TestView: View {
     @EnvironmentObject var stroop: Stroop
     
     var body: some View {
+        
+        let mode = stroop.phase.mode ?? .first
+        let text = stroop.test.current.word.text(for: mode)
+        let tint = mode.variable ? stroop.test.current.tint.color : .primary
+        
         VStack {
             
             ScoreView()
             
-            if stroop.phase == .test(.control) {
-                ControlView()
-            }
+            Spacer()
             
-            if stroop.phase == .test(.chinese) {
-                ChineseView()
-            }
+            Text(text)
+                .font(.system(size: 120))
+                .foregroundColor(tint)
+            Spacer()
             
-            if stroop.phase == .test(.english) {
-                EnglishView()
-            }
+            ButtonsView()
             
+            Spacer()
+            
+            Button(action: {
+                stroop.nextPhase()
+            }) {
+                Label(mode.next?.label ?? "Results", systemImage: "play")
+            }
+            .buttonStyle(.borderedProminent)
         }
         
     }
-
+    
 }
 
 struct TestView_Previews: PreviewProvider {

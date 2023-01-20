@@ -13,7 +13,7 @@ struct SpeedViews: View {
     
     var body: some View {
         HStack {
-            ForEach(Test.Mode.allCases, id: \.self) { mode in
+            ForEach(Test.Mode.list, id: \.self) { mode in
                 let score = stroop.test.score(for: mode)
                 SpeedView(score: score, mode: mode)
             }
@@ -27,12 +27,12 @@ struct SpeedViews: View {
 struct SpeedView: View {
     
     let score: Test.Score
-    let mode: Test.Mode?
+    let mode: Test.Mode? // nil = Total
+    
     
     
     func color(for mode: Test.Mode?) -> Color {
-        switch mode {
-        case .control: return .gray
+        switch mode?.language {
         case .chinese: return .red
         case .english: return .blue
         default: return .primary
@@ -42,9 +42,8 @@ struct SpeedView: View {
     var body: some View {
         
         let speed = CGFloat(score.gpm)
-//        let speed = CGFloat.random(in: 1.0 ... 69.0)
         let color = color(for: mode)
-        let title = mode?.rawValue ?? "Total"
+        let title = mode?.label ?? "Total"
         VStack {
             Text( title.localizedCapitalized).font(.headline)
                 .font(.headline)
@@ -74,6 +73,6 @@ struct SpeedViews_Previews: PreviewProvider {
 
 struct SpeedView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeedView(score: Sample.randomScore, mode: .english)
+        SpeedView(score: Sample.randomScore, mode: .random)
     }
 }

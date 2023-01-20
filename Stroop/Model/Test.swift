@@ -10,9 +10,9 @@ import Foundation
 class Test: Codable {
     
     var subject = Subject()
-
+    
     var trys = [Try]()
-
+    
     var current = Try()
     
     var score = Score()
@@ -32,14 +32,5 @@ class Test: Codable {
         trys.append(current)
         current = Try()
     }
-    
-    enum Mode: String, Codable, CaseIterable {
-        case control
-        case chinese
-        case english
-    }
-    
-    
-   
     
 }

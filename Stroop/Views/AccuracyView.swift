@@ -13,7 +13,7 @@ struct AccuracyViews: View {
     
     var body: some View {
         HStack {
-            ForEach(Test.Mode.allCases, id: \.self) { mode in
+            ForEach(Test.Mode.list, id: \.self) { mode in
                 let score = stroop.test.score(for: mode)
                 AccuracyView(score: score, mode: mode)
             }
@@ -27,12 +27,11 @@ struct AccuracyViews: View {
 struct AccuracyView: View {
     
     let score: Test.Score
-    let mode: Test.Mode?
+    let mode: Test.Mode? // nil == total
     
     
     func color(for mode: Test.Mode?) -> Color {
-        switch mode {
-        case .control: return .gray
+        switch mode?.language {
         case .chinese: return .red
         case .english: return .blue
         default: return .primary
@@ -43,7 +42,7 @@ struct AccuracyView: View {
         
         let accuracy = CGFloat(score.accuracy)
         let color = color(for: mode)
-        let title = mode?.rawValue ?? "Total"
+        let title = mode?.label ?? "Total"
         VStack {
             Text( title.localizedCapitalized).font(.headline)
             ZStack {
@@ -75,6 +74,6 @@ struct AccuracyViews_Previews: PreviewProvider {
 
 struct AccuracyView_Previews: PreviewProvider {
     static var previews: some View {
-        AccuracyView(score: Sample.randomScore, mode: .chinese)
+        AccuracyView(score: Sample.randomScore, mode: .random)
     }
 }

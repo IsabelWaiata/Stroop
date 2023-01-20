@@ -18,9 +18,11 @@ enum Colour: Codable, CaseIterable {
     case pink
     case brown
     
-    
-    var control: String {
-        return english
+    func text(for mode: Test.Mode) -> String {
+        switch mode.language {
+        case .chinese: return chinese
+        case .english: return english
+        }
     }
     
     var english: String {

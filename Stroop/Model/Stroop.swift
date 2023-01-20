@@ -46,6 +46,10 @@ class Stroop: Codable, ObservableObject {
         test = test
     }
     
+    func nextPhase() {
+        phase = phase.next
+    }
+    
     
     enum Phase: Hashable {
         case info
@@ -56,6 +60,16 @@ class Stroop: Codable, ObservableObject {
             switch self {
             case .test(let mode): return mode
             default: return nil
+            }
+        }
+        
+        var next: Phase {
+            switch self {
+            case .info: return .test(.first)
+            case .test(let mode):
+                guard let next = mode.next else { return .mark }
+                return .test(next)
+            case .mark: return .info
             }
         }
         

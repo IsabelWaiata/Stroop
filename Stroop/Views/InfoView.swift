@@ -38,7 +38,7 @@ struct InfoView: View {
             Text("Instructions")
             Button(action: {
                 stroop.nextTest()
-                stroop.phase = .test(.control)
+                stroop.phase = .test(.first)
             }) {
                 Label("Go!", systemImage: "play")
             }

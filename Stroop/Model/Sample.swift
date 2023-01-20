@@ -12,7 +12,7 @@ struct Sample {
     static var randomTry: Test.Try {
         let colour = Colour.random
         return Test.Try(
-            mode: Test.Mode.allCases.randomElement()!,
+            mode: Test.Mode.random,
             word: colour,
             tint: Colour.random,
             pick: (Int.random(in: 0 ... 9 ) < 7) ? colour : Colour.random,
