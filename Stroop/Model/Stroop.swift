@@ -11,16 +11,24 @@ class Stroop: Codable, ObservableObject {
     
     enum CodingKeys: String, CodingKey {
         case tests
+        case score
     }
     
     
     var tests = [Test]()
     
+    var score = Test.Score()
+    
     @Published var test = Test()
     @Published var phase = Phase.info
     
+    func calculateScore() {
+        
+    }
+    
     func saveTest() {
         tests.append(test)
+        calculateScore()
     }
         
     func nextTest() {

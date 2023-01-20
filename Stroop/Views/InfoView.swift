@@ -43,6 +43,8 @@ struct InfoView: View {
                 Label("Go!", systemImage: "play")
             }
             .buttonStyle(.borderedProminent)
+            
+            
         }
         .padding()
     }
