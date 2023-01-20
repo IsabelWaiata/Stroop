@@ -22,8 +22,12 @@ class Stroop: Codable, ObservableObject {
     @Published var test = Test()
     @Published var phase = Phase.info
     
+    /// add up all the test scores
     func calculateScore() {
-        
+        score = Test.Score()
+        for test in tests {
+            score += test.score
+        }
     }
     
     func saveTest() {
