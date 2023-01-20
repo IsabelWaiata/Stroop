@@ -64,7 +64,7 @@ extension Test {
         }
         
         var summary: String {
-        trysText + " in " + timeText + ". " + meanText
+            trysText + " in " + timeText + "."
         }
         
         static func +=(lhs: inout Score, rhs: Score) {
