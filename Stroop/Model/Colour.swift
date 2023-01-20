@@ -16,7 +16,7 @@ enum Colour: Codable, CaseIterable {
     case blue
     case purple
     case pink
-    case brown
+    case grey
     
     func text(for mode: Test.Mode) -> String {
         switch mode.language {
@@ -34,7 +34,7 @@ enum Colour: Codable, CaseIterable {
         case .blue:     return "Blue"
         case .purple:   return "Purple"
         case .pink:     return "Pink"
-        case .brown:    return "Brown"
+        case .grey:    return "Grey"
         }
     }
     
@@ -47,20 +47,20 @@ enum Colour: Codable, CaseIterable {
         case .blue:     return "蓝色"
         case .purple:   return "紫色"
         case .pink:     return "粉红色"
-        case .brown:    return "棕色"
+        case .grey:    return "灰色"
         }
     }
     
     var color: Color {
         switch self {
-        case .red:      return .red
-        case .orange:   return .orange
-        case .yellow:   return .yellow
-        case .green:    return .green
-        case .blue:     return .blue
-        case .purple:   return .purple
+        case .red:      return Color("Red")
+        case .orange:   return Color("Orange")
+        case .yellow:   return Color("Yellow")
+        case .green:    return Color("Green")
+        case .blue:     return Color("Blue")
+        case .purple:   return Color("Purple")
         case .pink:     return Color("Pink")
-        case .brown:    return .brown
+        case .grey:    return Color("Grey")
         }
     }
     
