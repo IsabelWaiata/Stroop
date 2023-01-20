@@ -45,8 +45,8 @@ extension Test {
         
         /// average time per correct answer
         var mean: TimeInterval? {
-            guard time != 0 else { return nil }
-            return Double(good) / time
+            guard good != 0 else { return nil }
+            return time / Double(good)
         }
         
         
