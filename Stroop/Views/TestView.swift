@@ -26,7 +26,8 @@ struct TestView: View {
             Spacer()
             
             Text(text)
-                .font(.system(size: 120))
+                .font(.system(size: 180))
+                .fontWeight(.heavy)
                 .foregroundColor(tint)
             Spacer()
             

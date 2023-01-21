@@ -49,6 +49,7 @@ struct Sample {
     
     static var stroop: Stroop {
         let stroop = Stroop()
+        stroop.phase = .test(.random)
         stroop.test = randomTest
         stroop.tests = randomTests
         return stroop
