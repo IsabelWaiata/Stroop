@@ -11,9 +11,11 @@ import UniformTypeIdentifiers
 
 struct StroopDocument: FileDocument {
     
-    var stroop = Stroop()
+    var stroop: Stroop
 
-    init() { }
+    init() {
+        stroop = Stroop()
+    }
     
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
@@ -34,13 +36,7 @@ struct StroopDocument: FileDocument {
             throw error
         }
     }
-    
-//    func csv() -> String {
-//        var csv = punter?.tit ?? ""
-//        csv += "," + card.tit + "\n"
-//        return csv
-//    }
-    
+
     static var readableContentTypes: [UTType] { [.stroop] }
 }
 
