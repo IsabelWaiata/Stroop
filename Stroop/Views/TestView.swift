@@ -15,7 +15,7 @@ struct TestView: View {
     
     var body: some View {
         
-        let mode = stroop.phase.mode ?? .first
+        let mode = stroop.phase.mode ?? .list.first!
         let text = stroop.test.current.word.text(for: mode)
         let tint = mode.variable ? stroop.test.current.tint.color : .primary
         
@@ -42,6 +42,16 @@ struct TestView: View {
             }
             .buttonStyle(.borderedProminent)
         }
+        .gesture(
+                DragGesture()
+                  .onEnded {
+                    if $0.translation.width < -100 {
+                        stroop.backPhase()
+                    } else if $0.translation.width > 100 {
+                        stroop.nextPhase()
+                    }
+                }
+              )
         
     }
     

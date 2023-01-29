@@ -46,6 +46,10 @@ class Stroop: Codable, ObservableObject {
         test = test
     }
     
+    func backPhase() {
+        phase = phase.back
+    }
+    
     func nextPhase() {
         phase = phase.next
     }
@@ -63,9 +67,19 @@ class Stroop: Codable, ObservableObject {
             }
         }
         
+        var back: Phase {
+            switch self {
+            case .info: return .info
+            case .test(let mode):
+                guard let next = mode.back else { return .info }
+                return .test(next)
+            case .mark: return .test(.list.last!)
+            }
+        }
+        
         var next: Phase {
             switch self {
-            case .info: return .test(.first)
+            case .info: return .test(.list.first!)
             case .test(let mode):
                 guard let next = mode.next else { return .mark }
                 return .test(next)

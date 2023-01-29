@@ -17,19 +17,24 @@ extension Test {
             language.label + " " + (variable ? "Variable" : "Control")
         }
         
-        /// order of proceeding
-        var next: Mode? {
-            if let language = self.language.next { // continue until all languages are done
-                return Mode(language: language, variable: self.variable)
-            } else if variable == false { // move on to variable modes
-                return Mode(language: Language.first, variable: true)
-            } else { // all done
-                return nil
-            }
+        var index: Int? {
+            Mode.list.firstIndex(of: self)
         }
         
-        static var first: Mode {
-            Mode(language: Language.first, variable: false)
+        /// reverse order of proceeding
+        var back: Mode? {
+            guard let index,
+                  Mode.list.indices.contains(index - 1)
+            else { return nil }
+            return Mode.list[index - 1]
+        }
+        
+        /// order of proceeding
+        var next: Mode? {
+            guard let index,
+                  Mode.list.indices.contains(index + 1)
+            else { return nil }
+            return Mode.list[index + 1]
         }
         
         static var random: Mode {
@@ -49,13 +54,6 @@ extension Test {
         case chinese
         case english
         
-        var next: Language? {
-            switch self {
-            case .chinese: return .english
-            case .english: return nil
-            }
-        }
-        
         var label: String {
             switch self {
             case .chinese : return "中文"
@@ -65,6 +63,10 @@ extension Test {
         
         static var first: Language {
             Language.allCases.first!
+        }
+        
+        static var last: Language {
+            Language.allCases.last!
         }
         
         static var random: Language {
