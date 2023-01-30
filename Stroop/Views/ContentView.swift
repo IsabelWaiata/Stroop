@@ -15,16 +15,15 @@ struct ContentView: View {
         VStack {
             PageView()
             Group {
-                Spacer()
                 switch stroop.phase {
                 case .info: InfoView()
                 case .test: TestView()
                 case .mark: MarkView()
                 }
             }
-            .transition(.slide)
         }
         .navigationTitle("")
+        
         .gesture(
             DragGesture()
                 .onEnded {

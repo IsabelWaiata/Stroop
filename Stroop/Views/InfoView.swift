@@ -12,19 +12,12 @@ struct InfoView: View {
     @EnvironmentObject var stroop: Stroop
     
     @AppStorage("Gender") var gender: Subject.Gender?
-    @AppStorage("Age") var age: Int = 1
+    @AppStorage("Age") var age: Int = 11
     
-    @State private var showingExporter = false
-    @State private var csvDocument: CSVDocument?
-    
+   
     var body: some View {
         VStack {
-            Button(action: {
-                csvDocument = CSVDocument(stroop)
-                showingExporter = true
-            }) {
-                Label("Export CSV", systemImage: "square.and.arrow.up")
-            }
+            ToolView()
             Form {
                 Picker(selection: $gender, label: Text("Gender:")) {
                     Text("Unspecified").tag(nil as Subject.Gender?)
@@ -44,7 +37,17 @@ struct InfoView: View {
                 }
                 
             }
-            Text("Instructions")
+            .frame(height: 160)
+            ScrollView(.vertical) {
+                Text("Instructions")
+                ButtonsView()
+                ButtonsView()
+                ButtonsView()
+                ButtonsView()
+                ButtonsView()
+                ButtonsView()
+                ButtonsView()
+            }
             Button(action: {
                 stroop.nextTest()
                 stroop.phase = .test(.list.first!)
@@ -56,17 +59,7 @@ struct InfoView: View {
             
         }
         .padding()
-        .fileExporter(isPresented: $showingExporter,
-                      document: csvDocument,
-                      contentType: .commaSeparatedText,
-                      defaultFilename: "Stroop Export") { result in
-            switch result {
-            case .success(let url):
-                print("Saved to \(url)")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        
         
     }
     

@@ -22,6 +22,7 @@ struct ButtonsView: View {
                         .foregroundColor(colour.color)
                         .cornerRadius(8)
                 }
+                .buttonStyle(.plain)
             }
         }
         .padding()

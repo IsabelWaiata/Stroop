@@ -44,6 +44,7 @@ struct TestView: View {
             }
             .buttonStyle(.borderedProminent)
         }
+        .padding()
         
     }
     
