@@ -21,6 +21,12 @@ struct ContentView: View {
                 case .mark: MarkView()
                 }
             }
+            Button(action: {
+                stroop.nextPhase()
+            }) {
+                Label(stroop.phase.next.label , systemImage: "play")
+            }
+            .buttonStyle(.borderedProminent)
         }
         .navigationTitle("")
         

@@ -55,37 +55,5 @@ class Stroop: Codable, ObservableObject {
     }
     
     
-    enum Phase: Hashable {
-        case info
-        case test(Test.Mode)
-        case mark
-        
-        var mode: Test.Mode? {
-            switch self {
-            case .test(let mode): return mode
-            default: return nil
-            }
-        }
-        
-        var back: Phase {
-            switch self {
-            case .info: return .info
-            case .test(let mode):
-                guard let next = mode.back else { return .info }
-                return .test(next)
-            case .mark: return .test(.list.last!)
-            }
-        }
-        
-        var next: Phase {
-            switch self {
-            case .info: return .test(.list.first!)
-            case .test(let mode):
-                guard let next = mode.next else { return .mark }
-                return .test(next)
-            case .mark: return .info
-            }
-        }
-        
-    }
+   
 }

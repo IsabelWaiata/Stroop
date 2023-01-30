@@ -38,16 +38,7 @@ struct InfoView: View {
                 
             }
             .frame(height: 160)
-            ScrollView(.vertical) {
-                Text("Instructions")
-                ButtonsView()
-                ButtonsView()
-                ButtonsView()
-                ButtonsView()
-                ButtonsView()
-                ButtonsView()
-                ButtonsView()
-            }
+            InstructView()
             Button(action: {
                 stroop.nextTest()
                 stroop.phase = .test(.list.first!)

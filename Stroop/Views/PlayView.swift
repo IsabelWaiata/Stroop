@@ -1,15 +1,13 @@
 //
-//  TestView.swift
+//  PlayView.swift
 //  Stroop
 //
-//  Created by Neal Watkins on 2023/1/17.
+//  Created by Neal Watkins on 2023/1/30.
 //
-
-import Foundation
 
 import SwiftUI
 
-struct TestView: View {
+struct PlayView: View {
     
     @EnvironmentObject var stroop: Stroop
     
@@ -18,21 +16,28 @@ struct TestView: View {
         let mode = stroop.phase.mode ?? .list.first!
         let text = stroop.test.current.word.text(for: mode)
         let tint = mode.variable ? stroop.test.current.tint.color : .primary
+    
+        Spacer()
         
-        VStack {
-            
-            ScoreView()
-            
-            PlayView()
-            
-        }
-        .padding()
+        Text(text)
+            .font(.system(size: 180))
+            .fontWeight(.heavy)
+            .minimumScaleFactor(0.2)
+            .lineLimit(1)
+            .foregroundColor(tint)
+        
+        Spacer()
+        
+        ButtonsView()
+           
+        Spacer()
+        
         
     }
     
 }
 
-struct TestView_Previews: PreviewProvider {
+struct PlayView_Previews: PreviewProvider {
     
     static var previews: some View {
         TestView()
