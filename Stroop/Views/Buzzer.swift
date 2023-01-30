@@ -9,21 +9,25 @@ import SwiftUI
 
 class Buzzer {
     
+    
+    typealias Taptics = UINotificationFeedbackGenerator
+    typealias Feedback = Taptics.FeedbackType
+    
     static let shared = Buzzer()
     
-    let haptic = UINotificationFeedbackGenerator()
+    let taptic = Taptics()
     
     init() {
-        haptic.prepare()
+        taptic.prepare()
     }
     
-    func feedback(_ feedback: UINotificationFeedbackGenerator.FeedbackType = .success) {
-        haptic.notificationOccurred(feedback)
+    func feedback(_ feedback: Feedback = .success) {
+        taptic.notificationOccurred(feedback)
     }
     
     func buzz(_ good: Bool? = true) {
         guard let good else { return }
-        let feedback: UINotificationFeedbackGenerator.FeedbackType = good ? .success : .error
+        let feedback: Feedback = good ? .success : .error
         self.feedback(feedback)
     }
 }
