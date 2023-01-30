@@ -39,11 +39,13 @@ class Stroop: Codable, ObservableObject {
         test = Test()
     }
     
-    func guess(_ colour: Colour) {
-        guard let mode = phase.mode else { return}
+    @discardableResult
+    func guess(_ colour: Colour) -> Bool? {
+        guard let mode = phase.mode else { return nil }
         test.current.mode = mode
-        test.guess(colour)
-        test = test
+        let good = test.guess(colour)
+        test = test // publish update
+        return good
     }
     
     func backPhase() {

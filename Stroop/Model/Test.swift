@@ -26,11 +26,14 @@ class Test: Codable {
         return Score(trys)
     }
     
-    func guess(_ colour: Colour) {
+    @discardableResult
+    func guess(_ colour: Colour) -> Bool? {
         current.pick = colour
         score.mark(current)
         trys.append(current)
+        let good = current.correct
         current = Try()
+        return good
     }
     
 }
