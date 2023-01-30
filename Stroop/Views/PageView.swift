@@ -18,7 +18,7 @@ struct PageView: View {
                 .tag(Stroop.Phase.info)
             ForEach(Test.Mode.list, id: \.self) { mode in
                 Label(mode.label, systemImage: "squares.below.rectangle")
-                    .tag(mode)
+                    .tag(Stroop.Phase.test(mode))
             }
             Label("Results", systemImage: "chart.xyaxis.line")
                 .tag(Stroop.Phase.mark)

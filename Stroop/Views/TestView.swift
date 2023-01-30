@@ -28,11 +28,13 @@ struct TestView: View {
             Text(text)
                 .font(.system(size: 180))
                 .fontWeight(.heavy)
+                .minimumScaleFactor(0.2)
+                .lineLimit(1)
                 .foregroundColor(tint)
             Spacer()
             
             ButtonsView()
-            
+               
             Spacer()
             
             Button(action: {
@@ -42,16 +44,6 @@ struct TestView: View {
             }
             .buttonStyle(.borderedProminent)
         }
-        .gesture(
-                DragGesture()
-                  .onEnded {
-                    if $0.translation.width < -100 {
-                        stroop.backPhase()
-                    } else if $0.translation.width > 100 {
-                        stroop.nextPhase()
-                    }
-                }
-              )
         
     }
     

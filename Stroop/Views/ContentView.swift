@@ -14,14 +14,27 @@ struct ContentView: View {
     var body: some View {
         VStack {
             PageView()
-            
-            switch stroop.phase {
-            case .info: InfoView()
-            case .test: TestView()
-            case .mark: MarkView()
+            Group {
+                Spacer()
+                switch stroop.phase {
+                case .info: InfoView()
+                case .test: TestView()
+                case .mark: MarkView()
+                }
             }
+            .transition(.slide)
         }
         .navigationTitle("")
+        .gesture(
+            DragGesture()
+                .onEnded {
+                    if $0.translation.width < -10 {
+                        stroop.nextPhase()
+                    } else if $0.translation.width > 10 {
+                        stroop.backPhase()
+                    }
+                }
+        )
     }
     
     
