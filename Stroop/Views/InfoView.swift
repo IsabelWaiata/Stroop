@@ -16,7 +16,7 @@ struct InfoView: View {
     
    
     var body: some View {
-        VStack {
+        ScrollView(.vertical) {
             ToolView()
             Form {
                 Picker(selection: $gender, label: Text("Gender:")) {

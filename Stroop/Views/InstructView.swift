@@ -12,7 +12,7 @@ struct InstructView: View {
     
     
     var body: some View {
-        ScrollView(.vertical) {
+        VStack {
             Text("Instructions")
                 .font(.title)
             Text("Press the coloured button corresponding to the **meaning** of the word")
