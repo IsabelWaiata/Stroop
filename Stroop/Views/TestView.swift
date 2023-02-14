@@ -15,10 +15,6 @@ struct TestView: View {
     
     var body: some View {
         
-        let mode = stroop.phase.mode ?? .list.first!
-        let text = stroop.test.current.word.text(for: mode)
-        let tint = mode.variable ? stroop.test.current.tint.color : .primary
-        
         VStack {
             
             ScoreView()

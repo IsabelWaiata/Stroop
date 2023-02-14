@@ -15,7 +15,7 @@ struct PlayView: View {
         
         let mode = stroop.phase.mode ?? .list.first!
         let text = stroop.test.current.word.text(for: mode)
-        let tint = mode.variable ? stroop.test.current.tint.color : .primary
+        let tint = mode.variable ? stroop.test.current.tint.color : stroop.test.current.word.color
     
         Spacer()
         
