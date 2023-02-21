@@ -21,11 +21,23 @@ class StroopDocument: ReferenceFileDocument {
         return self.stroop
     }
     
+    func write(snapshot: Stroop, to fileWrapper: inout FileWrapper, contentType: UTType) throws {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do {
+            let data = try encoder.encode(snapshot)
+            fileWrapper = FileWrapper(regularFileWithContents: data)
+        } catch {
+            throw error
+        }
+    }
+    
+    
     func fileWrapper(snapshot: Stroop, configuration: WriteConfiguration) throws -> FileWrapper {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
-            let data = try encoder.encode(stroop)
+            let data = try encoder.encode(snapshot)
             return .init(regularFileWithContents: data)
         } catch {
             throw error
