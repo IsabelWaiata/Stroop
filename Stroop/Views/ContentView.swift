@@ -30,8 +30,6 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
             }
         }
-        .navigationTitle("")
-        
         .gesture(
             DragGesture()
                 .onEnded {

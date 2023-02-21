@@ -14,11 +14,13 @@ struct MarkView: View {
     var body: some View {
         VStack {
             ScrollView {
-                Text("This Test").font(.largeTitle)
-                Text(stroop.test.score.summary)
-                Divider()
-                AccuracyViews(showTotal: false)
-                SpeedViews(showTotal: false)
+                if stroop.test.trys.count > 0 {
+                    Text("This Test").font(.largeTitle)
+                    Text(stroop.test.score.summary)
+                    Divider()
+                    AccuracyViews(showTotal: false)
+                    SpeedViews(showTotal: false)
+                }
                 Text("All Previous Tests").font(.largeTitle)
                 Text("\(stroop.tests.count) Tests Completed")
                 Divider()
@@ -26,7 +28,18 @@ struct MarkView: View {
                 SpeedViews(showTotal: true)
             }
             
-            HStack {
+            ZStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        stroop.nextTest()
+                        stroop.phase = .info
+                    }) {
+                        Label("Discard", systemImage: "xmark.bin")
+                    }
+                    .foregroundColor(.red)
+                    .buttonStyle(.plain)
+                }
                 Button(action: {
                     stroop.saveTest()
                     stroop.nextTest()
@@ -36,16 +49,10 @@ struct MarkView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 
-                Button(action: {
-                    stroop.nextTest()
-                    stroop.phase = .info
-                }) {
-                    Label("Discard", systemImage: "xmark.bin")
-                }
-                .foregroundColor(.red)
-                .buttonStyle(.plain)
-                
             }
+            .padding(.horizontal)
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }

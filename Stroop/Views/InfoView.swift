@@ -14,10 +14,9 @@ struct InfoView: View {
     @AppStorage("Gender") var gender: Subject.Gender?
     @AppStorage("Age") var age: Int = 11
     
-   
+    
     var body: some View {
         ScrollView(.vertical) {
-            ToolView()
             Form {
                 Picker(selection: $gender, label: Text("Gender:")) {
                     Text("Unspecified").tag(nil as Subject.Gender?)
@@ -50,10 +49,11 @@ struct InfoView: View {
             
         }
         .padding()
-        
-        
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolView()
+        }
     }
-    
 }
 
 struct InfoView_Previews: PreviewProvider {

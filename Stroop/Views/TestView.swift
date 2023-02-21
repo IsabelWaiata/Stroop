@@ -23,7 +23,7 @@ struct TestView: View {
             
         }
         .padding()
-        
+        .navigationBarHidden(true)
     }
     
 }

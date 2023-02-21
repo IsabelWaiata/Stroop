@@ -60,10 +60,12 @@ class Stroop: Codable, ObservableObject {
     
     func backPhase() {
         phase = phase.back
+        test.retry()
     }
     
     func nextPhase() {
         phase = phase.next
+        test.retry()
     }
     
     

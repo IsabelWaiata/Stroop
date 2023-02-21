@@ -26,13 +26,18 @@ class Test: Codable {
         return Score(trys)
     }
     
+    /// set current to a new try
+    func retry() {
+       current = Try()
+    }
+    
     @discardableResult
     func guess(_ colour: Colour) -> Bool? {
         current.pick = colour
         score.mark(current)
         trys.append(current)
         let good = current.correct
-        current = Try()
+        retry()
         return good
     }
     
