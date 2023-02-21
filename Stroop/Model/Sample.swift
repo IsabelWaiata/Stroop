@@ -52,6 +52,7 @@ struct Sample {
         stroop.phase = .test(.random)
         stroop.test = randomTest
         stroop.tests = randomTests
+        stroop.calculateScore()
         return stroop
     }
     

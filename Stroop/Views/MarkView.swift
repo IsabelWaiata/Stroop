@@ -13,34 +13,39 @@ struct MarkView: View {
     
     var body: some View {
         VStack {
-            Divider()
-            Text("Accuracy").font(.title)
-                .padding()
-            AccuracyViews()
-            Divider()
-            Text("Speed").font(.title).padding()
-            SpeedViews()
-        }
-        
-        HStack {
-            Button(action: {
-                stroop.saveTest()
-                stroop.nextTest()
-                stroop.phase = .info
-            }) {
-                Label("Save", systemImage: "internaldrive")
+            ScrollView {
+                Text("This Test").font(.largeTitle)
+                Text(stroop.test.score.summary)
+                Divider()
+                AccuracyViews(showTotal: false)
+                SpeedViews(showTotal: false)
+                Text("All Previous Tests").font(.largeTitle)
+                Text("\(stroop.tests.count) Tests Completed")
+                Divider()
+                AccuracyViews(showTotal: true)
+                SpeedViews(showTotal: true)
             }
-            .buttonStyle(.borderedProminent)
             
-            Button(action: {
-                stroop.nextTest()
-                stroop.phase = .info
-            }) {
-                Label("Discard", systemImage: "xmark.bin")
+            HStack {
+                Button(action: {
+                    stroop.saveTest()
+                    stroop.nextTest()
+                    stroop.phase = .info
+                }) {
+                    Label("Save", systemImage: "internaldrive")
+                }
+                .buttonStyle(.borderedProminent)
+                
+                Button(action: {
+                    stroop.nextTest()
+                    stroop.phase = .info
+                }) {
+                    Label("Discard", systemImage: "xmark.bin")
+                }
+                .foregroundColor(.red)
+                .buttonStyle(.plain)
+                
             }
-            .foregroundColor(.red)
-            .buttonStyle(.plain)
-            
         }
     }
 }

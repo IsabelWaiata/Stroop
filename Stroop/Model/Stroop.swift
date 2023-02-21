@@ -30,6 +30,16 @@ class Stroop: Codable, ObservableObject {
         }
     }
     
+    /// total score for mode
+    func score(for mode: Test.Mode) -> Test.Score {
+        var total = Test.Score()
+        for test in self.tests {
+            let score = test.score(for: mode)
+            total += score
+        }
+        return total
+    }
+    
     func saveTest() {
         tests.append(test)
         calculateScore()

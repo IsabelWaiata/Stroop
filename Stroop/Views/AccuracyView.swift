@@ -11,16 +11,24 @@ struct AccuracyViews: View {
     
     @EnvironmentObject var stroop: Stroop
     
+    @State var showTotal: Bool = false
+    
     var body: some View {
-        HStack {
-            ForEach(Test.Mode.list, id: \.self) { mode in
-                let score = stroop.test.score(for: mode)
-                AccuracyView(score: score, mode: mode)
+        VStack {
+            Text("Accuracy").font(.title)
+            HStack {
+                ForEach(Test.Mode.list, id: \.self) { mode in
+                    
+                    let score = showTotal ? stroop.score(for: mode) : stroop.test.score(for: mode)
+                    AccuracyView(score: score, mode: mode)
+                }
+                let score = showTotal ? stroop.score : stroop.test.score
+                AccuracyView(score: score, mode: nil)
+                
             }
-            
-            AccuracyView(score: stroop.test.score, mode: nil)
+            .padding()
+            Divider()
         }
-        .padding()
     }
 }
 
