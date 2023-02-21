@@ -55,4 +55,16 @@ struct Sample {
         return stroop
     }
     
+    static func stroop(_ mode: Test.Mode) -> Stroop {
+        let stroop = Stroop()
+        stroop.phase = .test(mode)
+        return stroop
+    }
+    
+    static func example(_ language: Test.Language, variable: Bool = true) -> Stroop {
+        let stroop = Stroop()
+        stroop.phase = .test(Test.Mode(language: language, variable: variable))
+        return stroop
+    }
+    
 }

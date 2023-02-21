@@ -38,7 +38,9 @@ struct MarkView: View {
             }) {
                 Label("Discard", systemImage: "xmark.bin")
             }
+            .foregroundColor(.red)
             .buttonStyle(.plain)
+            
         }
     }
 }

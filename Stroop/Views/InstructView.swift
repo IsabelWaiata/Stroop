@@ -19,10 +19,13 @@ struct InstructView: View {
             Text("Press the colored button corresponding to the **MEANING** of the word as *fast* as you can.")
             Text("如果你不懂中文或英文，你可以跳过它。")
             Text("If you don’t know Chinese or English, you can skip it.")
-            PlayView()
-                .environmentObject(Sample.stroop)
-            
+            ForEach(Test.Mode.list, id: \.self) { mode in
+                Divider()
+                PlayView()
+                    .environmentObject(Sample.stroop(mode))
+            }
         }
+        
     }
 }
 
