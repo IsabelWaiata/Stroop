@@ -9,24 +9,19 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 
-struct StroopDocument: FileDocument {
+class StroopDocument: ReferenceFileDocument {
+   
+    @Published var stroop: Stroop
     
-    var stroop: Stroop
-
     init() {
         stroop = Stroop()
     }
     
-    init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents,
-              let stroop = try? JSONDecoder().decode(Stroop.self, from: data)
-        else {
-            throw CocoaError(.fileReadCorruptFile)
-        }
-        self.stroop = stroop
+    func snapshot(contentType: UTType) throws -> Stroop {
+        return self.stroop
     }
     
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+    func fileWrapper(snapshot: Stroop, configuration: WriteConfiguration) throws -> FileWrapper {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
@@ -36,6 +31,27 @@ struct StroopDocument: FileDocument {
             throw error
         }
     }
+
+    
+    required init(configuration: ReadConfiguration) throws {
+        guard let data = configuration.file.regularFileContents,
+              let stroop = try? JSONDecoder().decode(Stroop.self, from: data)
+        else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+        self.stroop = stroop
+    }
+//
+//    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        do {
+//            let data = try encoder.encode(stroop)
+//            return .init(regularFileWithContents: data)
+//        } catch {
+//            throw error
+//        }
+//    }
 
     static var readableContentTypes: [UTType] { [.stroop] }
 }
