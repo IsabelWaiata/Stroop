@@ -11,6 +11,15 @@ struct ContentView: View {
     
     @EnvironmentObject var stroop: Stroop
     
+//    @Binding var doc: StroopDocument
+//    @ObservedObject var stroop: Stroop
+//
+//    init(doc: Binding<StroopDocument>) {
+//        _doc = doc
+//        stroop = doc.stroop.wrappedValue
+//    }
+    
+    
     var body: some View {
         VStack {
             PageView()

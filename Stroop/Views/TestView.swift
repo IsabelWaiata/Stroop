@@ -23,9 +23,10 @@ struct TestView: View {
             
         }
         .padding()
+#if os(iOS)
         .navigationBarHidden(true)
+#endif
     }
-    
 }
 
 struct TestView_Previews: PreviewProvider {

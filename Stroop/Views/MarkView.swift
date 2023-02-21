@@ -51,8 +51,9 @@ struct MarkView: View {
                 
             }
             .padding(.horizontal)
+#if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
-            
+#endif
         }
     }
 }

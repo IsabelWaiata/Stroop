@@ -49,7 +49,9 @@ struct InfoView: View {
             
         }
         .padding()
+#if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
         .toolbar {
             ToolView()
         }
