@@ -51,9 +51,15 @@ struct Sample {
         let stroop = Stroop()
         stroop.phase = .test(.random)
         stroop.test = randomTest
-        stroop.tests = randomTests
-        stroop.calculateScore()
+        stroop.model = model
         return stroop
+    }
+    
+    static var model: Model {
+        var model = Model()
+        model.tests = randomTests
+        model.score = model.totalScore
+        return model
     }
     
     static func stroop(_ mode: Test.Mode) -> Stroop {

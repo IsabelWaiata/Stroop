@@ -21,7 +21,7 @@ struct SpeedViews: View {
                     let score = showTotal ? stroop.score(for: mode) : stroop.test.score(for: mode)
                     SpeedView(score: score, mode: mode)
                 }
-                let score = showTotal ? stroop.score : stroop.test.score
+                let score = showTotal ? stroop.model.score : stroop.test.score
                 SpeedView(score: score, mode: nil)
             }
             .padding()

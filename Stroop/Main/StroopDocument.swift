@@ -19,18 +19,18 @@ struct StroopDocument: FileDocument {
     
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
-              let stroop = try? JSONDecoder().decode(Stroop.self, from: data)
+              let model = try? JSONDecoder().decode(Model.self, from: data)
         else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        self.stroop = stroop
+        self.stroop = Stroop(model)
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         do {
-            let data = try encoder.encode(stroop)
+            let data = try encoder.encode(stroop.model)
             return .init(regularFileWithContents: data)
         } catch {
             throw error

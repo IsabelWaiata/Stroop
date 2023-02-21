@@ -22,7 +22,7 @@ struct MarkView: View {
                     SpeedViews(stroop: stroop, showTotal: false)
                 }
                 Text("All Previous Tests").font(.largeTitle)
-                Text("\(stroop.tests.count) Tests Completed")
+                Text("\(stroop.model.tests.count) Tests Completed")
                 Divider()
                 AccuracyViews(stroop: stroop, showTotal: true)
                 SpeedViews(stroop: stroop, showTotal: true)

@@ -31,7 +31,7 @@ struct CSVDocument: FileDocument {
     
     init(_ stroop: Stroop) {
         var rows = [csvHeaderRow]
-        for test in stroop.tests {
+        for test in stroop.model.tests {
             let row = csv(for: test)
             rows.append(row)
         }

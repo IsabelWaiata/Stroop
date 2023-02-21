@@ -7,38 +7,26 @@
 
 import Foundation
 
-class Stroop: Codable, ObservableObject {
+class Stroop: ObservableObject {
     
-    // MARK: - Coding
+    init() { }
     
-    enum CodingKeys: String, CodingKey {
-        case tests
-        case score
+    init(_ model: Model) {
+        self.model = model
     }
-    
-    var tests = [Test]()
-    var score = Test.Score()
     
     // MARK: - Publishing
     
     @Published var test = Test()
     @Published var phase = Phase.info
-    
+    @Published var model = Model()
     
     // MARK: - Scoring
-    
-    /// add up all the test scores
-    func calculateScore() {
-        score = Test.Score()
-        for test in tests {
-            score += test.score
-        }
-    }
     
     /// total score for mode
     func score(for mode: Test.Mode) -> Test.Score {
         var total = Test.Score()
-        for test in self.tests {
+        for test in model.tests {
             let score = test.score(for: mode)
             total += score
         }
@@ -48,8 +36,8 @@ class Stroop: Codable, ObservableObject {
     // MARK: - Testing
     
     func saveTest() {
-        tests.append(test)
-        calculateScore()
+        model.tests.append(test)
+        model.score = model.totalScore
     }
         
     func nextTest() {

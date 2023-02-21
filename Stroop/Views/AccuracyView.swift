@@ -22,7 +22,7 @@ struct AccuracyViews: View {
                     let score = showTotal ? stroop.score(for: mode) : stroop.test.score(for: mode)
                     AccuracyView(score: score, mode: mode)
                 }
-                let score = showTotal ? stroop.score : stroop.test.score
+                let score = showTotal ? stroop.model.score : stroop.test.score
                 AccuracyView(score: score, mode: nil)
                 
             }
