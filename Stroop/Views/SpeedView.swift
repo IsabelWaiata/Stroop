@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SpeedViews: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     @State var showTotal: Bool = false
     
@@ -71,8 +71,7 @@ struct SpeedView: View {
 
 struct SpeedViews_Previews: PreviewProvider {
     static var previews: some View {
-        SpeedViews()
-            .environmentObject(Sample.stroop)
+        SpeedViews(stroop: Sample.stroop)
     }
 }
 

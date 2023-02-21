@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MarkView: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     var body: some View {
         VStack {
@@ -18,14 +18,14 @@ struct MarkView: View {
                     Text("This Test").font(.largeTitle)
                     Text(stroop.test.score.summary)
                     Divider()
-                    AccuracyViews(showTotal: false)
-                    SpeedViews(showTotal: false)
+                    AccuracyViews(stroop: stroop, showTotal: false)
+                    SpeedViews(stroop: stroop, showTotal: false)
                 }
                 Text("All Previous Tests").font(.largeTitle)
                 Text("\(stroop.tests.count) Tests Completed")
                 Divider()
-                AccuracyViews(showTotal: true)
-                SpeedViews(showTotal: true)
+                AccuracyViews(stroop: stroop, showTotal: true)
+                SpeedViews(stroop: stroop, showTotal: true)
             }
             
             ZStack {
@@ -60,7 +60,6 @@ struct MarkView: View {
 
 struct MarkView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkView()
-            .environmentObject(Sample.stroop)
+        MarkView(stroop: Sample.stroop)
     }
 }

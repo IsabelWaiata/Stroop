@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScoreView: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     var body: some View {
         Text(stroop.test.score.summary)
@@ -18,7 +18,6 @@ struct ScoreView: View {
 
 struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreView()
-            .environmentObject(Sample.stroop)
+        ScoreView(stroop: Sample.stroop)
     }
 }

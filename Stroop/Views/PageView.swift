@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PageView: View {
 
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
 
     var body: some View {
         Picker("", selection: $stroop.phase) {
@@ -33,7 +33,6 @@ struct PageView: View {
 
 struct PageView_Previews: PreviewProvider {
     static var previews: some View {
-        PageView()
-            .environmentObject(Stroop())
+        PageView(stroop: Sample.stroop)
     }
 }

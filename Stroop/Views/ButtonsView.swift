@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonsView: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     var body: some View {
         HStack {
@@ -33,7 +33,6 @@ struct ButtonsView: View {
 
 struct ButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonsView()
-            .environmentObject(Stroop())
+        ButtonsView(stroop: Sample.stroop)
     }
 }

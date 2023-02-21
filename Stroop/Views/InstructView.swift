@@ -21,8 +21,7 @@ struct InstructView: View {
             Text("If you don’t know Chinese or English, you can skip it.")
             ForEach(Test.Mode.list, id: \.self) { mode in
                 Divider()
-                PlayView()
-                    .environmentObject(Sample.stroop(mode))
+                PlayView(stroop: Sample.stroop(mode))
             }
         }
         

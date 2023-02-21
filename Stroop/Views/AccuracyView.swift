@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccuracyViews: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     @State var showTotal: Bool = false
     
@@ -75,8 +75,7 @@ struct AccuracyView: View {
 
 struct AccuracyViews_Previews: PreviewProvider {
     static var previews: some View {
-        AccuracyViews()
-            .environmentObject(Sample.stroop)
+        AccuracyViews(stroop: Sample.stroop)
     }
 }
 

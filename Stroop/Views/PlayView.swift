@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayView: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     var body: some View {
         
@@ -28,7 +28,7 @@ struct PlayView: View {
         
         Spacer()
         
-        ButtonsView()
+        ButtonsView(stroop: stroop)
            
         Spacer()
         
@@ -40,7 +40,6 @@ struct PlayView: View {
 struct PlayView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TestView()
-            .environmentObject(Sample.stroop)
+        TestView(stroop: Sample.stroop)
     }
 }

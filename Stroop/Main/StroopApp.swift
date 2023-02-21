@@ -12,8 +12,7 @@ struct StroopApp: App {
     
     var body: some Scene {
         DocumentGroup(newDocument: StroopDocument()) { file in
-            ContentView()
-                .environmentObject(file.document.stroop)
+            ContentView(doc: file.$document)
                 .frame(minWidth: 120, maxWidth: .infinity, minHeight: 80, maxHeight: .infinity)
         }
     }

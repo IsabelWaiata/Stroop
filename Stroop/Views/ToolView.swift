@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ToolView: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     @State private var showingExporter = false
     @State private var csvDocument: CSVDocument?
@@ -39,6 +39,6 @@ struct ToolView: View {
 
 struct ToolView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolView()
+        ToolView(stroop: Sample.stroop)
     }
 }

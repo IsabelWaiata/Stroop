@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoView: View {
     
-    @EnvironmentObject var stroop: Stroop
+    @ObservedObject var stroop: Stroop
     
     @AppStorage("Gender") var gender: Subject.Gender?
     @AppStorage("Age") var age: Int = 11
@@ -53,14 +53,13 @@ struct InfoView: View {
         .navigationBarTitleDisplayMode(.inline)
 #endif
         .toolbar {
-            ToolView()
+            ToolView(stroop: stroop)
         }
     }
 }
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
-            .environmentObject(Stroop())
+        InfoView(stroop: Sample.stroop)
     }
 }
