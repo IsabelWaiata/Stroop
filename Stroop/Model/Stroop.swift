@@ -9,18 +9,23 @@ import Foundation
 
 class Stroop: Codable, ObservableObject {
     
+    // MARK: - Coding
+    
     enum CodingKeys: String, CodingKey {
         case tests
         case score
     }
     
-    
     var tests = [Test]()
-    
     var score = Test.Score()
+    
+    // MARK: - Publishing
     
     @Published var test = Test()
     @Published var phase = Phase.info
+    
+    
+    // MARK: - Scoring
     
     /// add up all the test scores
     func calculateScore() {
@@ -40,6 +45,8 @@ class Stroop: Codable, ObservableObject {
         return total
     }
     
+    // MARK: - Testing
+    
     func saveTest() {
         tests.append(test)
         calculateScore()
@@ -57,6 +64,8 @@ class Stroop: Codable, ObservableObject {
         test = test // publish update
         return good
     }
+    
+    // MARK: - Phasing
     
     func backPhase() {
         phase = phase.back

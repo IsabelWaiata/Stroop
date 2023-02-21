@@ -17,6 +17,12 @@ class Test: Codable {
     
     var score = Score()
     
+    enum CodingKeys: String, CodingKey {
+        case subject
+        case trys
+        case score
+    }
+    
     func recalculateScore() {
         score = Score(trys)
     }
