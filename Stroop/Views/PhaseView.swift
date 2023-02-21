@@ -9,22 +9,22 @@ import SwiftUI
 
 struct PhaseView: View {
 
-    @ObservedObject var stroop: Stroop
+    @Binding var doc: StroopDocument
 
     var body: some View {
         VStack {
             Group {
-                switch stroop.phase {
-                case .info: InfoView(stroop: stroop)
-                case .test: TestView(stroop: stroop)
-                case .mark: MarkView(stroop: stroop)
+                switch doc.stroop.phase {
+                case .info: InfoView(doc: $doc)
+                case .test: TestView(doc: $doc)
+                case .mark: MarkView(doc: $doc)
                 }
             }
-            if stroop.phase != .mark {
+            if doc.stroop.phase != .mark {
                 Button(action: {
-                    stroop.nextPhase()
+                    doc.stroop.nextPhase()
                 }) {
-                    Label(stroop.phase.next.label , systemImage: "play")
+                    Label(doc.stroop.phase.next.label , systemImage: "play")
                 }
                 .buttonStyle(.borderedProminent)
             }
@@ -33,9 +33,9 @@ struct PhaseView: View {
             DragGesture()
                 .onEnded {
                     if $0.translation.width < -10 {
-                        stroop.nextPhase()
+                        doc.stroop.nextPhase()
                     } else if $0.translation.width > 10 {
-                        stroop.backPhase()
+                        doc.stroop.backPhase()
                     }
                 }
         )
@@ -47,6 +47,6 @@ struct PhaseView: View {
 
 struct PhaseView_Previews: PreviewProvider {
     static var previews: some View {
-        PhaseView(stroop: Sample.stroop)
+        PhaseView(doc: .constant(Sample.document))
     }
 }

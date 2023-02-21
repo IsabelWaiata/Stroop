@@ -40,6 +40,6 @@ struct PlayView: View {
 struct PlayView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TestView(stroop: Sample.stroop)
+        PlayView(stroop: Sample.stroop)
     }
 }

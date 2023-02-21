@@ -11,15 +11,15 @@ import SwiftUI
 
 struct TestView: View {
     
-    @ObservedObject var stroop: Stroop
+    @Binding var doc: StroopDocument
     
     var body: some View {
         
         VStack {
             
-            ScoreView(stroop: stroop)
+            ScoreView(stroop: doc.stroop)
             
-            PlayView(stroop: stroop)
+            PlayView(stroop: doc.stroop)
             
         }
         .padding()
@@ -32,6 +32,6 @@ struct TestView: View {
 struct TestView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TestView(stroop: Sample.stroop)
+        TestView(doc: .constant(Sample.document))
     }
 }

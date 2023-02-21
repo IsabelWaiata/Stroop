@@ -9,31 +9,31 @@ import SwiftUI
 
 struct MarkView: View {
     
-    @ObservedObject var stroop: Stroop
+    @Binding var doc: StroopDocument
     
     var body: some View {
         VStack {
             ScrollView {
-                if stroop.test.trys.count > 0 {
+                if doc.stroop.test.trys.count > 0 {
                     Text("This Test").font(.largeTitle)
-                    Text(stroop.test.score.summary)
+                    Text(doc.stroop.test.score.summary)
                     Divider()
-                    AccuracyViews(stroop: stroop, showTotal: false)
-                    SpeedViews(stroop: stroop, showTotal: false)
+                    AccuracyViews(stroop: doc.stroop, showTotal: false)
+                    SpeedViews(stroop: doc.stroop, showTotal: false)
                 }
                 Text("All Previous Tests").font(.largeTitle)
-                Text("\(stroop.model.tests.count) Tests Completed")
+                Text("\(doc.stroop.model.tests.count) Tests Completed")
                 Divider()
-                AccuracyViews(stroop: stroop, showTotal: true)
-                SpeedViews(stroop: stroop, showTotal: true)
+                AccuracyViews(stroop: doc.stroop, showTotal: true)
+                SpeedViews(stroop: doc.stroop, showTotal: true)
             }
             
             ZStack {
                 HStack {
                     Spacer()
                     Button(action: {
-                        stroop.nextTest()
-                        stroop.phase = .info
+                        doc.stroop.nextTest()
+                        doc.stroop.phase = .info
                     }) {
                         Label("Discard", systemImage: "xmark.bin")
                     }
@@ -41,9 +41,9 @@ struct MarkView: View {
                     .buttonStyle(.plain)
                 }
                 Button(action: {
-                    stroop.saveTest()
-                    stroop.nextTest()
-                    stroop.phase = .info
+                    doc.stroop.saveTest()
+                    doc.stroop.nextTest()
+                    doc.stroop.phase = .info
                 }) {
                     Label("Save", systemImage: "internaldrive")
                 }
@@ -60,6 +60,6 @@ struct MarkView: View {
 
 struct MarkView_Previews: PreviewProvider {
     static var previews: some View {
-        MarkView(stroop: Sample.stroop)
+        MarkView(doc: .constant(Sample.document))
     }
 }

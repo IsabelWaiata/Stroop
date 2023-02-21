@@ -12,12 +12,10 @@ struct ContentView: View {
     
     @Binding var doc: StroopDocument
 
-    
-    
     var body: some View {
         VStack {
-            PageView(stroop: doc.stroop)
-            PhaseView(stroop: doc.stroop)
+            PageView(doc: $doc)
+            PhaseView(doc: $doc)
         }
     }
     

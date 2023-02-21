@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PageView: View {
 
-    @ObservedObject var stroop: Stroop
+    @Binding var doc: StroopDocument
 
     var body: some View {
-        Picker("", selection: $stroop.phase) {
+        Picker("", selection: $doc.stroop.phase) {
             
             Label("Info", systemImage: "info.circle")
                 .tag(Stroop.Phase.info)
@@ -33,6 +33,6 @@ struct PageView: View {
 
 struct PageView_Previews: PreviewProvider {
     static var previews: some View {
-        PageView(stroop: Sample.stroop)
+        PageView(doc: .constant(Sample.document))
     }
 }

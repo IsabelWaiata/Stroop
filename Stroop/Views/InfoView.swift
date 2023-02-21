@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoView: View {
     
-    @ObservedObject var stroop: Stroop
+    @Binding var doc: StroopDocument
     
     @AppStorage("Gender") var gender: Subject.Gender?
     @AppStorage("Age") var age: Int = 11
@@ -39,8 +39,8 @@ struct InfoView: View {
             .frame(height: 160)
             InstructView()
             Button(action: {
-                stroop.nextTest()
-                stroop.phase = .test(.list.first!)
+                doc.stroop.nextTest()
+                doc.stroop.phase = .test(.list.first!)
             }) {
                 Label("Go!", systemImage: "play")
             }
@@ -53,13 +53,13 @@ struct InfoView: View {
         .navigationBarTitleDisplayMode(.inline)
 #endif
         .toolbar {
-            ToolView(stroop: stroop)
+            ToolView(stroop: doc.stroop)
         }
     }
 }
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView(stroop: Sample.stroop)
+        InfoView(doc: .constant(Sample.document))
     }
 }
