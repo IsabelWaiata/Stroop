@@ -13,7 +13,7 @@ struct StroopDocument: FileDocument {
     
     var stroop: Stroop
     
-    var trick = 0
+    var save = 0
 
     init() {
         stroop = Stroop()
@@ -33,7 +33,8 @@ struct StroopDocument: FileDocument {
         encoder.outputFormatting = .prettyPrinted
         do {
             let data = try encoder.encode(stroop)
-            return .init(regularFileWithContents: data)
+            let wrap = FileWrapper(regularFileWithContents: data)
+            return wrap
         } catch {
             throw error
         }
