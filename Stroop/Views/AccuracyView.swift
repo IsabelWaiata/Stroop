@@ -53,20 +53,19 @@ struct AccuracyView: View {
         let title = mode?.label ?? "Total"
         VStack {
             Text( title.localizedCapitalized).font(.headline)
-            ZStack {
-                Circle()
-                    .trim(from: 0, to: accuracy)
-                    .stroke(lineWidth: 12)
-                    .rotationEffect(.degrees(-90))
-                    .frame(width: 100)
-                VStack {
-                    Text("\(Int(accuracy * 100))%")
-                        .font(.title2)
-                    Text("\(score.good) / \(score.trys)")
-                }
+            Text("\(Int(accuracy * 100))%")
+                .font(.title2)
+            Text("\(score.good) / \(score.trys)")
+            VStack(spacing: 0) {
+                Rectangle()
+                    .frame(width: 100, height: 150 - 150 * accuracy)
+                    .foregroundColor(.clear)
+                    .border(color)
+                Rectangle()
+                    .frame(width: 100, height: 150 * accuracy)
             }
-            .padding()
         }
+        .frame(width: 150)
         .foregroundColor(color)
     }
     
@@ -75,7 +74,7 @@ struct AccuracyView: View {
 
 struct AccuracyViews_Previews: PreviewProvider {
     static var previews: some View {
-        AccuracyViews()
+        MarkView()
             .environmentObject(Sample.stroop)
     }
 }

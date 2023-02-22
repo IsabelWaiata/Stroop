@@ -38,7 +38,13 @@ extension Test {
         }
         
         /// number of good guesses per minute
-        var gpm: Double {
+        var attemptsPerMinute: Double {
+            guard time != 0 else { return 0 }
+            return Double(trys) * 60 / time
+        }
+        
+        /// number of good guesses per minute
+        var correctPerMinute: Double {
             guard time != 0 else { return 0 }
             return Double(good) * 60 / time
         }

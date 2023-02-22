@@ -47,31 +47,34 @@ struct SpeedView: View {
     
     var body: some View {
         
-        let speed = CGFloat(score.gpm)
+        let attempt = CGFloat(score.attemptsPerMinute)
+        let correct = CGFloat(score.correctPerMinute)
         let color = color(for: mode)
         let title = mode?.label ?? "Total"
+        let height = 150
         VStack {
             Text( title.localizedCapitalized).font(.headline)
-                .font(.headline)
+            Text(String(format: "%0.1f", correct))
+                .font(.title2)
+            
             VStack(spacing: 0) {
-                Text(String(format: "%0.1f", speed))
-                    .font(.title2)
                 Rectangle()
-                    .frame(width: 120, height: 150 - 2 * speed)
+                    .frame(width: 100, height: 2 * (attempt - correct))
                     .foregroundColor(.clear)
+                    .border(color)
                 Rectangle()
-                    .frame(width: 120, height: 2 * speed)
-                
+                    .frame(width: 100, height: 2 * correct)
             }
+            .frame(width: 150, height: 150, alignment: .bottom)
         }
         .foregroundColor(color)
-    }
-    
+     }
 }
+
 
 struct SpeedViews_Previews: PreviewProvider {
     static var previews: some View {
-        SpeedViews()
+        MarkView()
             .environmentObject(Sample.stroop)
     }
 }
