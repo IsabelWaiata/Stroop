@@ -5,6 +5,7 @@
 //  Created by Neal Watkins on 2023/1/31.
 //
 
+import AVFoundation
 import SwiftUI
 
 class Buzzer {
@@ -29,5 +30,12 @@ class Buzzer {
         guard let good else { return }
 //        let feedback: Feedback = good ? .success : .error
 //        self.feedback(feedback)
+    }
+    
+    func ding(_ colour: Colour)  {
+        guard let sound = colour.sound,
+                let player = try? AVAudioPlayer(contentsOf: sound, fileTypeHint: "aif")
+        else { return }
+        player.play()
     }
 }

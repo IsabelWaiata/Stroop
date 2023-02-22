@@ -15,8 +15,8 @@ struct ButtonsView: View {
         HStack {
             ForEach(Colour.allCases, id: \.self) { colour in
                 Button {
-                    let good = stroop.guess(colour)
-                    Buzzer.shared.buzz(good)
+                    stroop.guess(colour)
+                    Buzzer.shared.ding(colour)
                 } label: {
                     Rectangle()
                         .frame(height: 150)

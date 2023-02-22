@@ -64,6 +64,11 @@ enum Colour: Codable, CaseIterable {
         }
     }
     
+    var sound: URL? {
+//        let name = "Audio/" + self.english + ".aif"
+        Bundle.main.url(forResource: self.english, withExtension: "aif")
+    }
+    
     static var random: Colour {
         allCases.randomElement()!
     }

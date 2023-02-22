@@ -56,7 +56,7 @@ struct AccuracyView: View {
             ZStack {
                 Circle()
                     .trim(from: 0, to: accuracy)
-                    .stroke(lineWidth: 24)
+                    .stroke(lineWidth: 12)
                     .rotationEffect(.degrees(-90))
                     .frame(width: 100)
                 VStack {
