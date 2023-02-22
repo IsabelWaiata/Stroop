@@ -22,7 +22,11 @@ class Stroop: Codable, ObservableObject {
     // MARK: - Publishing
     
     @Published var test = Test()
-    @Published var phase = Phase.info
+    @Published var phase = Phase.info {
+        didSet {
+            test.retry()
+        }
+    }
     
     
     // MARK: - Scoring
@@ -69,12 +73,10 @@ class Stroop: Codable, ObservableObject {
     
     func backPhase() {
         phase = phase.back
-        test.retry()
     }
     
     func nextPhase() {
         phase = phase.next
-        test.retry()
     }
     
     
