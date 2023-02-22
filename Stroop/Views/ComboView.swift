@@ -1,13 +1,13 @@
 //
-//  SpeedView.swift
+//  ComboView.swift
 //  Stroop
 //
-//  Created by Neal Watkins on 2023/1/18.
+//  Created by Neal Watkins on 2023/2/22.
 //
 
 import SwiftUI
 
-struct SpeedViews: View {
+struct ComboViews: View {
     
     @EnvironmentObject var stroop: Stroop
     
@@ -15,43 +15,50 @@ struct SpeedViews: View {
     
     var body: some View {
         VStack {
-            Text("Correct per Minute").font(.title)
             HStack {
                 ForEach(Test.Mode.list, id: \.self) { mode in
                     let score = showTotal ? stroop.score(for: mode) : stroop.test.score(for: mode)
-                    SpeedView(score: score, mode: mode)
+                    ComboView(score: score, mode: mode)
                 }
                 let score = showTotal ? stroop.score : stroop.test.score
-                SpeedView(score: score, mode: nil)
+                ComboView(score: score, mode: nil)
             }
-            .padding()
             Divider()
+            Text("cpm = Correct Attempts per Minute")
         }
+        .padding()
     }
 }
 
-struct SpeedView: View {
+
+struct ComboView: View {
     
     let score: Test.Score
     let mode: Test.Mode? // nil = Total
     
     func color(for mode: Test.Mode?) -> Color {
-        switch mode?.language {
-        case .chinese: return .red
-        case .english: return .blue
-        default: return .primary
+        guard let mode else { return .secondary }
+        switch mode.language {
+        case .chinese: return mode.variable ? .red : .orange
+        case .english: return mode.variable ? .blue : .teal
         }
     }
     
     var body: some View {
         
+        let accuracy = CGFloat(score.accuracy)
         let attempt = CGFloat(score.attemptsPerMinute)
         let correct = CGFloat(score.correctPerMinute)
         let color = color(for: mode)
-        let title = mode?.label ?? "Total"
+        let title = mode?.label ?? "Mean"
+        
         VStack {
             Text( title.localizedCapitalized).font(.headline)
-            Text(String(format: "%0.1f", correct))
+            Group {
+                Text("\(score.good) / \(score.trys)")
+                Text("\(Int(accuracy * 100))%")
+                Text(String(format: "%0.1f cpm", correct))
+            }
                 .font(.title2)
             
             VStack(spacing: 0) {
@@ -69,16 +76,15 @@ struct SpeedView: View {
 }
 
 
-struct SpeedViews_Previews: PreviewProvider {
+struct ComboViews_Previews: PreviewProvider {
     static var previews: some View {
-        MarkView()
+        ComboViews()
             .environmentObject(Sample.stroop)
     }
 }
 
-
-struct SpeedView_Previews: PreviewProvider {
+struct ComboView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeedView(score: Sample.randomScore, mode: .random)
+        ComboView(score: Sample.randomScore, mode: .random)
     }
 }

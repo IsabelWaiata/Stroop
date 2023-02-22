@@ -18,14 +18,12 @@ struct MarkView: View {
                     Text("This Test").font(.largeTitle)
                     Text(stroop.test.score.summary)
                     Divider()
-                    AccuracyViews(showTotal: false)
-                    SpeedViews(showTotal: false)
+                    ComboViews(showTotal: false)
                 }
                 Text("All Previous Tests").font(.largeTitle)
                 Text("\(stroop.tests.count) Tests Completed")
                 Divider()
-                AccuracyViews(showTotal: true)
-                SpeedViews(showTotal: true)
+                ComboViews(showTotal: true)
             }
             
             ZStack {

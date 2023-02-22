@@ -40,6 +40,7 @@
 		08D8B16229A5CDA5001F6095 /* Yellow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 08D8B15A29A5CDA5001F6095 /* Yellow.aif */; };
 		08D8B16329A5CDA5001F6095 /* Purple.aif in Resources */ = {isa = PBXBuildFile; fileRef = 08D8B15B29A5CDA5001F6095 /* Purple.aif */; };
 		08D8B16429A5CDA5001F6095 /* Orange.aif in Resources */ = {isa = PBXBuildFile; fileRef = 08D8B15C29A5CDA5001F6095 /* Orange.aif */; };
+		08D8B16629A5DF8B001F6095 /* ComboView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8B16529A5DF8B001F6095 /* ComboView.swift */; };
 		08DD757A29A5BBA400E00EEE /* PhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD757929A5BBA400E00EEE /* PhaseView.swift */; };
 		08F3968E297A5236004A7584 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F3968D297A5236004A7584 /* Score.swift */; };
 		08F39690297A527A004A7584 /* Try.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F3968F297A527A004A7584 /* Try.swift */; };
@@ -83,6 +84,7 @@
 		08D8B15A29A5CDA5001F6095 /* Yellow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Yellow.aif; path = audio/Yellow.aif; sourceTree = SOURCE_ROOT; };
 		08D8B15B29A5CDA5001F6095 /* Purple.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Purple.aif; path = audio/Purple.aif; sourceTree = SOURCE_ROOT; };
 		08D8B15C29A5CDA5001F6095 /* Orange.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Orange.aif; path = audio/Orange.aif; sourceTree = SOURCE_ROOT; };
+		08D8B16529A5DF8B001F6095 /* ComboView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboView.swift; sourceTree = "<group>"; };
 		08DD757929A5BBA400E00EEE /* PhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseView.swift; sourceTree = "<group>"; };
 		08F3968D297A5236004A7584 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		08F3968F297A527A004A7584 /* Try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Try.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				0892D6EE29767ACF009E0DBF /* MarkView.swift */,
 				0833C34A2977DBD800132DD7 /* AccuracyView.swift */,
 				0833C34E2977E23600132DD7 /* SpeedView.swift */,
+				08D8B16529A5DF8B001F6095 /* ComboView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				081C7F4929884ACF000DD021 /* Buzzer.swift in Sources */,
 				0833C34D2977DC4200132DD7 /* Sample.swift in Sources */,
 				0892D6EB2976789A009E0DBF /* Subject.swift in Sources */,
+				08D8B16629A5DF8B001F6095 /* ComboView.swift in Sources */,
 				0892D6F129767EF0009E0DBF /* Colour.swift in Sources */,
 				0833C34F2977E23600132DD7 /* SpeedView.swift in Sources */,
 				0892D6E7297672EA009E0DBF /* Stroop.swift in Sources */,
