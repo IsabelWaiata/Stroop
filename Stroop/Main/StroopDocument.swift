@@ -12,6 +12,8 @@ import UniformTypeIdentifiers
 struct StroopDocument: FileDocument {
     
     var stroop: Stroop
+    
+    var trick = 0
 
     init() {
         stroop = Stroop()
@@ -36,7 +38,7 @@ struct StroopDocument: FileDocument {
             throw error
         }
     }
-
+    
     static var readableContentTypes: [UTType] { [.stroop] }
 }
 

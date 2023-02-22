@@ -68,4 +68,11 @@ struct Sample {
         return stroop
     }
     
+    
+    static var document: StroopDocument {
+        var doc = StroopDocument()
+        doc.stroop = stroop
+        return doc
+    }
+    
 }
