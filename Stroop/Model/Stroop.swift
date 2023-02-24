@@ -77,6 +77,9 @@ class Stroop: Codable, ObservableObject {
     
     func nextPhase() {
         phase = phase.next
+        if phase == .test(Test.Mode.list.first!) {
+            nextTest()
+        }
     }
     
     
