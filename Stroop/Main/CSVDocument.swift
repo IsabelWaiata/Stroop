@@ -13,7 +13,7 @@ struct CSVDocument: FileDocument {
     
     var csv: String = ""
     
-    let csvHeaderRow = "Gender,Age,Chinese Control Attempts,Chinese Control Correct,Chinese Control Seconds,English Control Attempts,Chinese Variable Attempts,Chinese Variable Correct,Chinese Variable Seconds,English Control Correct,English Control Seconds,English Variable Attempts,English Variable Correct,English Variable Seconds"
+    let csvHeaderRow = "Gender,Age,Chinese Control Attempts,Chinese Control Correct,Chinese Control Seconds,Chinese Variable Attempts,Chinese Variable Correct,Chinese Variable Seconds,English Control Attempts,English Control Correct,English Control Seconds,English Variable Attempts,English Variable Correct,English Variable Seconds"
     
     func csv(for test: Test) -> String {
         var cells = [String]()
