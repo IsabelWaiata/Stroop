@@ -49,6 +49,13 @@ class Stroop: Codable, ObservableObject {
         return total
     }
     
+    var combinedTest: Test {
+        let test = Test()
+        test.trys = tests.flatMap { $0.trys }
+        test.recalculateScore()
+        return test
+    }
+    
     // MARK: - Testing
     
     func saveTest() {
@@ -82,6 +89,4 @@ class Stroop: Codable, ObservableObject {
         }
     }
     
-    
-   
 }

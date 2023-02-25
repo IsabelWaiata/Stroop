@@ -32,6 +32,16 @@ class Test: Codable {
         return Score(trys)
     }
     
+    func controlScore() -> Test.Score {
+        let trys = self.trys.filter { $0.mode.variable == false }
+        return Score(trys)
+    }
+    
+    func variableScore() -> Test.Score {
+        let trys = self.trys.filter { $0.mode.variable == true }
+        return Score(trys)
+    }
+    
     /// set current to a new try
     func retry() {
        current = Try()

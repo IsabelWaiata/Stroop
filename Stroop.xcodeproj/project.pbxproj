@@ -19,6 +19,7 @@
 		0833C34B2977DBD800132DD7 /* AccuracyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833C34A2977DBD800132DD7 /* AccuracyView.swift */; };
 		0833C34D2977DC4200132DD7 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833C34C2977DC4200132DD7 /* Sample.swift */; };
 		0833C34F2977E23600132DD7 /* SpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833C34E2977E23600132DD7 /* SpeedView.swift */; };
+		088425AF29A99F4400CB76F9 /* EffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088425AE29A99F4400CB76F9 /* EffectView.swift */; };
 		0892D6D329766998009E0DBF /* StroopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D229766998009E0DBF /* StroopApp.swift */; };
 		0892D6D529766998009E0DBF /* StroopDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D429766998009E0DBF /* StroopDocument.swift */; };
 		0892D6D729766998009E0DBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892D6D629766998009E0DBF /* ContentView.swift */; };
@@ -60,6 +61,7 @@
 		0833C34A2977DBD800132DD7 /* AccuracyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuracyView.swift; sourceTree = "<group>"; };
 		0833C34C2977DC4200132DD7 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		0833C34E2977E23600132DD7 /* SpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedView.swift; sourceTree = "<group>"; };
+		088425AE29A99F4400CB76F9 /* EffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectView.swift; sourceTree = "<group>"; };
 		0892D6CF29766998009E0DBF /* Stroop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stroop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0892D6D229766998009E0DBF /* StroopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroopApp.swift; sourceTree = "<group>"; };
 		0892D6D429766998009E0DBF /* StroopDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroopDocument.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				0833C34A2977DBD800132DD7 /* AccuracyView.swift */,
 				0833C34E2977E23600132DD7 /* SpeedView.swift */,
 				08D8B16529A5DF8B001F6095 /* ComboView.swift */,
+				088425AE29A99F4400CB76F9 /* EffectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				0833C34F2977E23600132DD7 /* SpeedView.swift in Sources */,
 				0892D6E7297672EA009E0DBF /* Stroop.swift in Sources */,
 				08051D3C2987A46800383CF9 /* PlayView.swift in Sources */,
+				088425AF29A99F4400CB76F9 /* EffectView.swift in Sources */,
 				0892D6D329766998009E0DBF /* StroopApp.swift in Sources */,
 				0892D6D529766998009E0DBF /* StroopDocument.swift in Sources */,
 				0892D6D729766998009E0DBF /* ContentView.swift in Sources */,

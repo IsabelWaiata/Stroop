@@ -17,13 +17,12 @@ struct MarkView: View {
                 if stroop.test.trys.count > 0 {
                     Text("This Test").font(.largeTitle)
                     Text(stroop.test.score.summary)
-                    Divider()
-                    ComboViews(showTotal: false)
+                    ComboViews(showEveryone: false)
                 }
                 Text("All Previous Tests").font(.largeTitle)
                 Text("\(stroop.tests.count) Tests Completed")
                 Divider()
-                ComboViews(showTotal: true)
+                ComboViews(showEveryone: true)
             }
             
             ZStack {

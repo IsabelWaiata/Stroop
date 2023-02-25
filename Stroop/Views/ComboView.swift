@@ -11,20 +11,22 @@ struct ComboViews: View {
     
     @EnvironmentObject var stroop: Stroop
     
-    @State var showTotal: Bool = false
+    @State var showEveryone: Bool = false
     
     var body: some View {
         VStack {
             HStack {
                 ForEach(Test.Mode.list, id: \.self) { mode in
-                    let score = showTotal ? stroop.score(for: mode) : stroop.test.score(for: mode)
+                    let score = showEveryone ? stroop.score(for: mode) : stroop.test.score(for: mode)
                     ComboView(score: score, mode: mode)
                 }
-                let score = showTotal ? stroop.score : stroop.test.score
+                let score = showEveryone ? stroop.score : stroop.test.score
                 ComboView(score: score, mode: nil)
             }
-            Divider()
             Text("cpm = Correct Attempts per Minute")
+            let test = showEveryone ? stroop.combinedTest : stroop.test
+            EffectView(test: test)
+            Divider()
         }
         .padding()
     }
@@ -59,7 +61,7 @@ struct ComboView: View {
                 Text("\(Int(accuracy * 100))%")
                 Text(String(format: "%0.1f cpm", correct))
             }
-                .font(.title2)
+            .font(.title2)
             
             VStack(spacing: 0) {
                 Rectangle()
@@ -72,7 +74,7 @@ struct ComboView: View {
             .frame(width: 150, height: 150, alignment: .bottom)
         }
         .foregroundColor(color)
-     }
+    }
 }
 
 
